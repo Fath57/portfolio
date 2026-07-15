@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Document de cadrage du portfolio : positionnement, ton éditorial et design system complet.">
+<title>Cadrage — Portfolio Développeur Fullstack</title>
+<style>
+  html, body { min-height: 100%; }
+  /* Reset minimal (l'artifact en fournissait un) */
+  h1,h2,h3,h4,p,dl,dd,figure { margin: 0; }
+  img { max-width: 100%; }
+  code { font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace; font-size: .9em; }
+  :root {
+    /* Neutres à dérive froide (bleutée) — choisis, pas hérités */
+    --bg:        #FBFBFD;
+    --surface:   #FFFFFF;
+    --surface-2: #F4F4F8;
+    --border:    #E7E7EE;
+    --border-strong: #D4D5DE;
+    --ink:       #14161D;
+    --ink-muted: #575B6A;
+    --ink-faint: #8B8F9E;
+    /* Accent indigo */
+    --accent:        #4F46E5;
+    --accent-strong: #4338CA;
+    --accent-ink:    #FFFFFF;
+    --accent-soft:   #EEF0FE;
+    --accent-line:   #C9CDF9;
+    /* Sémantiques (distincts de l'accent) */
+    --success: #15884B;
+    --warning: #B4700A;
+    --critical:#C5341F;
+    --success-soft: #E7F4EC;
+    --warning-soft: #FBF1DF;
+    --critical-soft:#FBEBE7;
+
+    --radius-sm: 6px;
+    --radius:    10px;
+    --radius-lg: 16px;
+    --shadow-sm: 0 1px 2px rgba(20,22,29,.05), 0 1px 1px rgba(20,22,29,.04);
+    --shadow:    0 4px 16px -4px rgba(20,22,29,.10), 0 2px 6px -2px rgba(20,22,29,.06);
+
+    --maxw: 760px;
+
+    --font-display: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Menlo", "Consolas", monospace;
+
+    --fs-xs:   .75rem;
+    --fs-sm:   .8125rem;
+    --fs-base: 1.0625rem;
+    --fs-md:   1.1875rem;
+    --fs-lg:   1.5rem;
+    --fs-xl:   2rem;
+    --fs-2xl:  2.75rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:        #0B0C10;
+      --surface:   #14161C;
+      --surface-2: #1B1E26;
+      --border:    #272B35;
+      --border-strong: #333844;
+      --ink:       #F2F3F6;
+      --ink-muted: #A3A8B6;
+      --ink-faint: #6B7080;
+      --accent:        #818CF8;
+      --accent-strong: #A5AEFF;
+      --accent-ink:    #0B0C10;
+      --accent-soft:   #191B2E;
+      --accent-line:   #35386A;
+      --success: #46C77E; --warning: #E0A93A; --critical: #EE6A56;
+      --success-soft: #12241A; --warning-soft: #241D0F; --critical-soft: #26150F;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
+      --shadow:    0 6px 22px -6px rgba(0,0,0,.55);
+    }
+  }
+  /* Toggle explicite du lecteur — doit gagner dans les deux sens */
+  :root[data-theme="light"] {
+    --bg:#FBFBFD;--surface:#FFFFFF;--surface-2:#F4F4F8;--border:#E7E7EE;--border-strong:#D4D5DE;
+    --ink:#14161D;--ink-muted:#575B6A;--ink-faint:#8B8F9E;
+    --accent:#4F46E5;--accent-strong:#4338CA;--accent-ink:#FFFFFF;--accent-soft:#EEF0FE;--accent-line:#C9CDF9;
+    --success:#15884B;--warning:#B4700A;--critical:#C5341F;
+    --success-soft:#E7F4EC;--warning-soft:#FBF1DF;--critical-soft:#FBEBE7;
+    --shadow-sm:0 1px 2px rgba(20,22,29,.05),0 1px 1px rgba(20,22,29,.04);
+    --shadow:0 4px 16px -4px rgba(20,22,29,.10),0 2px 6px -2px rgba(20,22,29,.06);
+  }
+  :root[data-theme="dark"] {
+    --bg:#0B0C10;--surface:#14161C;--surface-2:#1B1E26;--border:#272B35;--border-strong:#333844;
+    --ink:#F2F3F6;--ink-muted:#A3A8B6;--ink-faint:#6B7080;
+    --accent:#818CF8;--accent-strong:#A5AEFF;--accent-ink:#0B0C10;--accent-soft:#191B2E;--accent-line:#35386A;
+    --success:#46C77E;--warning:#E0A93A;--critical:#EE6A56;
+    --success-soft:#12241A;--warning-soft:#241D0F;--critical-soft:#26150F;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+    --shadow:0 6px 22px -6px rgba(0,0,0,.55);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Nav sticky ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar__inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 12px 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .brand { font-family: var(--font-mono); font-size: var(--fs-sm); letter-spacing: .01em; color: var(--ink); white-space: nowrap; }
+  .brand b { color: var(--accent); }
+  .topnav { margin-left: auto; display: flex; gap: 4px; flex-wrap: wrap; }
+  .topnav a {
+    font-family: var(--font-mono); font-size: var(--fs-xs);
+    color: var(--ink-muted); text-decoration: none;
+    padding: 5px 9px; border-radius: var(--radius-sm);
+  }
+  .topnav a:hover { color: var(--ink); background: var(--surface-2); }
+  .topnav a:focus-visible, a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+  @media (max-width: 640px) { .topnav { display: none; } .theme-toggle { margin-left: auto; } }
+
+  /* ---------- Hero ---------- */
+  header.hero { padding: 72px 0 40px; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: var(--fs-xs);
+    text-transform: uppercase; letter-spacing: .14em; color: var(--accent);
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 22px;
+  }
+  .eyebrow::before { content:""; width: 22px; height: 1px; background: var(--accent-line); }
+  h1 {
+    font-family: var(--font-display); font-weight: 680;
+    font-size: var(--fs-2xl); line-height: 1.04; letter-spacing: -.03em;
+    text-wrap: balance; margin: 0 0 20px;
+  }
+  .lede { font-size: var(--fs-md); color: var(--ink-muted); max-width: 62ch; margin: 0; line-height: 1.55; }
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: 8px 8px; margin-top: 28px;
+    font-family: var(--font-mono); font-size: var(--fs-xs);
+  }
+  .meta-row span {
+    padding: 5px 10px; border: 1px solid var(--border); border-radius: 100px;
+    color: var(--ink-muted); background: var(--surface);
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 34px 0; border-top: 1px solid var(--border); }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .sec-num { font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--accent); }
+  h2 { font-family: var(--font-display); font-weight: 640; font-size: var(--fs-xl); letter-spacing: -.022em; margin: 0; line-height: 1.1; }
+  h3 { font-family: var(--font-display); font-weight: 620; font-size: var(--fs-md); letter-spacing: -.012em; margin: 30px 0 12px; }
+  .sec-intro { color: var(--ink-muted); margin: 4px 0 24px; max-width: 64ch; }
+  p { margin: 0 0 16px; }
+  p:last-child { margin-bottom: 0; }
+  a.inline { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-line); }
+  a.inline:hover { border-color: var(--accent); }
+  strong { color: var(--ink); font-weight: 640; }
+
+  /* ---------- Récap grid ---------- */
+  .recap { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .recap > div { background: var(--surface); padding: 16px 18px; }
+  .recap dt { font-family: var(--font-mono); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .1em; color: var(--ink-faint); margin-bottom: 6px; }
+  .recap dd { margin: 0; font-weight: 560; color: var(--ink); }
+  @media (max-width: 560px) { .recap { grid-template-columns: 1fr; } }
+
+  /* ---------- Cards / callouts ---------- */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow-sm); }
+  .stack { display: grid; gap: 14px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .principle { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; padding: 4px 0; }
+  .principle .k { font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--accent); padding-top: 2px; white-space: nowrap; }
+  .principle .v { color: var(--ink-muted); }
+  .principle .v b { color: var(--ink); font-weight: 620; }
+
+  /* ---------- Ton: do/don't ---------- */
+  .tone { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .tone { grid-template-columns: 1fr; } }
+  .tone .card { padding: 18px; }
+  .tone .tag { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; }
+  .tone .yes .tag { color: var(--success); }
+  .tone .no .tag { color: var(--critical); }
+  .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .yes .dot { background: var(--success); }
+  .no .dot { background: var(--critical); }
+  .quote { font-size: var(--fs-base); color: var(--ink); line-height: 1.5; margin: 0 0 4px; }
+  .quote + .quote { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border); }
+
+  /* ---------- Couleurs ---------- */
+  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 620px) { .swatches { grid-template-columns: repeat(2, 1fr); } }
+  .sw { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .sw .chip { height: 70px; }
+  .sw .info { padding: 10px 12px; }
+  .sw .name { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink); }
+  .sw .hex { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-faint); text-transform: uppercase; }
+  .sw .role { font-size: var(--fs-xs); color: var(--ink-muted); margin-top: 3px; }
+
+  .neutrals { display: flex; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-top: 12px; }
+  .neutrals div { flex: 1; height: 46px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 5px; font-family: var(--font-mono); font-size: 10px; }
+
+  /* ---------- Type specimen ---------- */
+  .scale-row { display: grid; grid-template-columns: 88px 1fr; gap: 18px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .scale-row:last-child { border-bottom: 0; }
+  .scale-meta { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-faint); line-height: 1.4; }
+  .scale-sample { font-family: var(--font-display); color: var(--ink); letter-spacing: -.02em; line-height: 1.1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .roles { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  @media (max-width: 640px) { .roles { grid-template-columns: 1fr; } }
+  .role-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; background: var(--surface); }
+  .role-card .lbl { font-family: var(--font-mono); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 10px; }
+  .role-card .demo { color: var(--ink); margin-bottom: 8px; }
+  .role-card .desc { font-size: var(--fs-sm); color: var(--ink-muted); }
+
+  /* ---------- Spacing scale ---------- */
+  .space { display: grid; gap: 8px; }
+  .space-row { display: grid; grid-template-columns: 80px 1fr; align-items: center; gap: 14px; }
+  .space-row .tok { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-muted); }
+  .space-bar { height: 14px; background: var(--accent); border-radius: 3px; opacity: .85; }
+
+  /* ---------- Components demo ---------- */
+  .btn { font-family: var(--font-body); font-size: var(--fs-sm); font-weight: 560; border-radius: var(--radius-sm); padding: 9px 16px; border: 1px solid transparent; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform .12s ease, background .15s ease, border-color .15s; }
+  .btn:active { transform: translateY(1px); }
+  .btn--primary { background: var(--accent); color: var(--accent-ink); }
+  .btn--primary:hover { background: var(--accent-strong); }
+  .btn--ghost { background: transparent; color: var(--ink); border-color: var(--border-strong); }
+  .btn--ghost:hover { background: var(--surface-2); }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .badge { font-family: var(--font-mono); font-size: var(--fs-xs); padding: 4px 10px; border-radius: 100px; border: 1px solid var(--border); color: var(--ink-muted); background: var(--surface); }
+  .badge--accent { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
+  .badge--ok { color: var(--success); background: var(--success-soft); border-color: transparent; }
+  .badge--warn { color: var(--warning); background: var(--warning-soft); border-color: transparent; }
+
+  /* Project card demo */
+  .proj { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; background: var(--surface); box-shadow: var(--shadow-sm); transition: box-shadow .18s ease, transform .18s ease, border-color .18s; }
+  .proj:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-color: var(--border-strong); }
+  @media (prefers-reduced-motion: reduce) { .proj { transition: none; } }
+  .proj .top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .proj h4 { font-family: var(--font-display); font-weight: 620; font-size: var(--fs-md); margin: 0; letter-spacing: -.01em; }
+  .proj .yr { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-faint); }
+  .proj p { color: var(--ink-muted); font-size: var(--fs-sm); margin: 8px 0 16px; }
+  .proj .link { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+  .proj .link:hover { gap: 9px; }
+
+  /* ---------- Page structure / anatomy ---------- */
+  .anatomy { display: grid; gap: 8px; }
+  .zone { border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius-sm); padding: 12px 16px; background: var(--surface); display: grid; grid-template-columns: 130px 1fr; gap: 14px; align-items: baseline; }
+  @media (max-width: 560px) { .zone { grid-template-columns: 1fr; gap: 4px; } }
+  .zone .z { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent); }
+  .zone .d { font-size: var(--fs-sm); color: var(--ink-muted); }
+
+  /* ---------- Roadmap ---------- */
+  .steps { display: grid; gap: 2px; counter-reset: step; }
+  .step { display: grid; grid-template-columns: 34px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: start; }
+  .step:last-child { border-bottom: 0; }
+  .step .n { counter-increment: step; font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--accent-ink); background: var(--accent); width: 26px; height: 26px; border-radius: 7px; display: grid; place-items: center; }
+  .step .n::before { content: counter(step, decimal-leading-zero); }
+  .step h4 { margin: 2px 0 4px; font-family: var(--font-display); font-weight: 620; font-size: var(--fs-base); }
+  .step p { margin: 0; font-size: var(--fs-sm); color: var(--ink-muted); }
+
+  /* ---------- Footer ---------- */
+  footer { border-top: 1px solid var(--border); padding: 30px 0 60px; color: var(--ink-faint); font-family: var(--font-mono); font-size: var(--fs-xs); }
+  footer b { color: var(--ink-muted); font-weight: 500; }
+
+  .note { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-faint); }
+
+  /* load reveal */
+  .reveal { opacity: 0; transform: translateY(8px); animation: rise .5s ease forwards; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .reveal { animation: none; opacity: 1; transform: none; } }
+
+  /* Bouton de thème (version autonome) */
+  .theme-toggle {
+    font-family: var(--font-mono); font-size: var(--fs-xs);
+    color: var(--ink-muted); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 100px;
+    padding: 5px 11px; cursor: pointer; white-space: nowrap;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--border-strong); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar__inner">
+    <span class="brand">portfolio<b>.</b>cadrage</span>
+    <nav class="topnav" aria-label="Sommaire">
+      <a href="#cadre">Cadre</a>
+      <a href="#position">Positionnement</a>
+      <a href="#ton">Ton</a>
+      <a href="#couleurs">Couleurs</a>
+      <a href="#typo">Typo</a>
+      <a href="#espace">Espace</a>
+      <a href="#composants">Composants</a>
+      <a href="#pages">Pages</a>
+      <a href="#suite">Suite</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Basculer le thème clair/sombre">
+      <span id="themeIcon">◐</span> <span id="themeLabel">Thème</span>
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero reveal">
+    <span class="eyebrow">Document de cadrage · v1</span>
+    <h1>Portfolio d'un développeur fullstack, pensé pour convaincre un recruteur en 30&nbsp;secondes.</h1>
+    <p class="lede">Avant la première ligne de code : le positionnement, le ton et le design system qui guideront chaque décision. Un cap unique pour ne pas refaire le design trois fois.</p>
+    <div class="meta-row" aria-label="Décisions cadrées">
+      <span>🎯 Cible : recruteurs</span>
+      <span>⚙️ Profil : fullstack</span>
+      <span>◇ Minimal &amp; épuré</span>
+      <span>◆ Accent indigo</span>
+      <span>▲ Next.js + Tailwind</span>
+    </div>
+  </header>
+
+  <!-- 1. CADRE -->
+  <section id="cadre">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Le cadre</h2></div>
+    <p class="sec-intro">Les six décisions verrouillées ensemble. Tout le reste du document en découle — si une décision change, le design system doit être relu.</p>
+    <dl class="recap">
+      <div><dt>Objectif</dt><dd>Décrocher un CDI / poste</dd></div>
+      <div><dt>Audience</dt><dd>Recruteurs &amp; lead tech</dd></div>
+      <div><dt>Profil</dt><dd>Développeur fullstack</dd></div>
+      <div><dt>Direction</dt><dd>Minimal &amp; épuré</dd></div>
+      <div><dt>Accent</dt><dd>Bleu indigo</dd></div>
+      <div><dt>Stack de build</dt><dd>Next.js + Tailwind CSS</dd></div>
+    </dl>
+    <p style="margin-top:16px" class="note">Sections retenues : Projets · À propos · Blog · CV téléchargeable + Contact.</p>
+  </section>
+
+  <!-- 2. POSITIONNEMENT -->
+  <section id="position">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Positionnement &amp; audience</h2></div>
+    <p class="sec-intro">Un recruteur passe <strong>quelques dizaines de secondes</strong> sur un portfolio au premier tri. Le site doit répondre à trois questions <em>avant</em> qu'il ne scrolle : qui, quoi, et « puis-je le contacter ».</p>
+
+    <div class="stack">
+      <div class="card">
+        <div class="principle"><span class="k">Qui&nbsp;lit</span><span class="v"><b>Recruteur tech ou lead dev.</b> Souvent pressé, parfois non-technique au premier tri. Il cherche à écarter, pas à admirer. Le design doit inspirer <b>confiance et clarté</b>, jamais l'obliger à déchiffrer.</span></div>
+      </div>
+      <div class="card">
+        <div class="principle"><span class="k">La&nbsp;promesse</span><span class="v">« Un dev fullstack qui livre du produit propre, comprend le besoin et communique clairement. » Le site <b>prouve</b> cette phrase par l'exemple : sa propre qualité d'exécution est la première preuve de compétence.</span></div>
+      </div>
+      <div class="card">
+        <div class="principle"><span class="k">Priorités</span><span class="v"><b>1.</b> Nom + rôle + stack visibles d'emblée. <b>2.</b> 2–3 projets phares en études de cas. <b>3.</b> CV et contact accessibles depuis n'importe où. Le blog et le « à propos » servent la profondeur, pas l'accroche.</span></div>
+      </div>
+      <div class="card">
+        <div class="principle"><span class="k">Anti-but</span><span class="v">Pas de démonstration technique gratuite qui ralentit ou distrait. Le minimalisme n'est pas une contrainte esthétique ici — c'est <b>la stratégie</b> : réduire la friction jusqu'à la décision « je le contacte ».</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. TON -->
+  <section id="ton">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Ton éditorial</h2></div>
+    <p class="sec-intro">Direct, précis, humain. On écrit comme un bon ingénieur parle : phrases courtes, verbes concrets, zéro jargon marketing. La confiance se lit dans la sobriété, pas dans les superlatifs.</p>
+
+    <h3>Trois règles</h3>
+    <div class="card stack" style="gap:10px">
+      <div class="principle"><span class="k">concret</span><span class="v">Des faits et des résultats mesurables, pas des adjectifs. <b>« Réduit le temps de chargement de 4s à 0,8s »</b> plutôt que « performances optimisées ».</span></div>
+      <div class="principle"><span class="k">sobre</span><span class="v">La première personne, assumée mais mesurée. On ne se vend pas — on montre. Pas de « ninja », « passionné », « rockstar ».</span></div>
+      <div class="principle"><span class="k">actif</span><span class="v">Chaque bouton dit ce qui se passe : <b>« Voir le projet »</b>, <b>« Télécharger le CV »</b>, <b>« M'écrire »</b>. Jamais « cliquez ici ».</span></div>
+    </div>
+
+    <h3>En pratique</h3>
+    <div class="tone">
+      <div class="card yes">
+        <span class="tag"><span class="dot"></span> à faire</span>
+        <p class="quote">« Développeur fullstack. Je conçois et livre des applications web de bout en bout — de la base de données à l'interface. »</p>
+        <p class="quote">« J'ai repensé le tunnel de paiement : conversion +18&nbsp;% en deux mois. »</p>
+      </div>
+      <div class="card no">
+        <span class="tag"><span class="dot"></span> à éviter</span>
+        <p class="quote">« Développeur passionné et créatif, toujours à la recherche de nouveaux défis pour repousser les limites du possible. »</p>
+        <p class="quote">« Expert en solutions innovantes et performantes au service de votre réussite. »</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. COULEURS -->
+  <section id="couleurs">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Couleurs</h2></div>
+    <p class="sec-intro">Un fond neutre à légère dérive froide, une <strong>seule</strong> couleur d'accent — l'indigo — dépensée avec parcimonie (liens, boutons, focus, un mot par-ci). Les couleurs sémantiques restent distinctes de l'accent pour signaler un état, jamais pour décorer.</p>
+
+    <h3>Palette de marque</h3>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#4F46E5"></div><div class="info"><div class="name">accent</div><div class="hex">#4F46E5</div><div class="role">Indigo — action principale</div></div></div>
+      <div class="sw"><div class="chip" style="background:#4338CA"></div><div class="info"><div class="name">accent-strong</div><div class="hex">#4338CA</div><div class="role">Hover / pressé</div></div></div>
+      <div class="sw"><div class="chip" style="background:#EEF0FE"></div><div class="info"><div class="name">accent-soft</div><div class="hex">#EEF0FE</div><div class="role">Fond de badge, teinte</div></div></div>
+      <div class="sw"><div class="chip" style="background:#14161D"></div><div class="info"><div class="name">ink</div><div class="hex">#14161D</div><div class="role">Texte — noir froid</div></div></div>
+    </div>
+
+    <h3>Sémantiques <span class="note">— état uniquement</span></h3>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#15884B"></div><div class="info"><div class="name">success</div><div class="hex">#15884B</div><div class="role">Dispo, envoyé, live</div></div></div>
+      <div class="sw"><div class="chip" style="background:#B4700A"></div><div class="info"><div class="name">warning</div><div class="hex">#B4700A</div><div class="role">En cours, brouillon</div></div></div>
+      <div class="sw"><div class="chip" style="background:#C5341F"></div><div class="info"><div class="name">critical</div><div class="hex">#C5341F</div><div class="role">Erreur de formulaire</div></div></div>
+      <div class="sw"><div class="chip" style="background:var(--surface-2);border:1px solid var(--border)"></div><div class="info"><div class="name">surface-2</div><div class="hex">#F4F4F8</div><div class="role">Panneau secondaire</div></div></div>
+    </div>
+
+    <h3>Échelle de neutres</h3>
+    <p class="note" style="margin-bottom:8px">Gris à pointe bleutée — « choisis », pas un gris pur. De l'encre au blanc cassé.</p>
+    <div class="neutrals">
+      <div style="background:#14161D;color:#fff">14161D</div>
+      <div style="background:#575B6A;color:#fff">575B6A</div>
+      <div style="background:#8B8F9E;color:#fff">8B8F9E</div>
+      <div style="background:#D4D5DE;color:#333">D4D5DE</div>
+      <div style="background:#E7E7EE;color:#333">E7E7EE</div>
+      <div style="background:#F4F4F8;color:#555">F4F4F8</div>
+      <div style="background:#FBFBFD;color:#777;border-left:1px solid var(--border)">FBFBFD</div>
+    </div>
+    <p class="note" style="margin-top:14px">En <b>dark mode</b> : ground <code>#0B0C10</code>, surfaces <code>#14161C</code>, l'accent s'éclaircit en <code>#818CF8</code> pour rester lisible sur fond sombre. Bascule le thème du lecteur (en haut à droite de ton navigateur/OS) pour voir cette page s'adapter.</p>
+  </section>
+
+  <!-- 5. TYPO -->
+  <section id="typo">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Typographie</h2></div>
+    <p class="sec-intro">Trois rôles, une hiérarchie franche. Le <strong>monospace</strong> n'est pas décoratif : il signe l'identité de dev et sert les labels, tokens et métadonnées. Sur le vrai site, on chargera <strong>Inter Tight</strong> (titres) + <strong>Inter</strong> (corps) + <strong>JetBrains Mono</strong> via <code>next/font</code> (auto-hébergé, zéro CLS).</p>
+
+    <div class="roles">
+      <div class="role-card">
+        <div class="lbl">Display</div>
+        <div class="demo" style="font-family:var(--font-display);font-weight:680;font-size:1.5rem;letter-spacing:-.02em">Fullstack</div>
+        <div class="desc">Titres, hero. Poids 600–700, tracking serré. Inter&nbsp;Tight.</div>
+      </div>
+      <div class="role-card">
+        <div class="lbl">Body</div>
+        <div class="demo" style="font-size:1.0625rem">Un texte lisible, aéré, qui se lit sans effort sur 65&nbsp;caractères.</div>
+        <div class="desc">Paragraphes, listes. Interligne 1,65. Inter.</div>
+      </div>
+      <div class="role-card">
+        <div class="lbl">Mono</div>
+        <div class="demo" style="font-family:var(--font-mono);font-size:.9rem">const&nbsp;role&nbsp;=&nbsp;"dev"</div>
+        <div class="desc">Labels, tags, dates, code. JetBrains&nbsp;Mono.</div>
+      </div>
+    </div>
+
+    <h3>Échelle typographique</h3>
+    <div class="card">
+      <div class="scale-row"><div class="scale-meta">2XL · 44px<br>hero</div><div class="scale-sample" style="font-size:2.2rem;font-weight:680">Construire, livrer, itérer</div></div>
+      <div class="scale-row"><div class="scale-meta">XL · 32px<br>titre section</div><div class="scale-sample" style="font-size:1.7rem;font-weight:640">Projets sélectionnés</div></div>
+      <div class="scale-row"><div class="scale-meta">LG · 24px<br>sous-titre</div><div class="scale-sample" style="font-size:1.35rem;font-weight:620">Étude de cas</div></div>
+      <div class="scale-row"><div class="scale-meta">MD · 19px<br>lede</div><div class="scale-sample" style="font-size:1.1875rem;font-weight:500;color:var(--ink-muted)">Chapô introductif</div></div>
+      <div class="scale-row"><div class="scale-meta">Base · 17px<br>corps</div><div class="scale-sample" style="font-size:1.0625rem;font-weight:400;font-family:var(--font-body);letter-spacing:0">Texte courant du site</div></div>
+      <div class="scale-row"><div class="scale-meta">SM · 13px<br>meta</div><div class="scale-sample" style="font-size:.8125rem;font-family:var(--font-mono);letter-spacing:0;color:var(--ink-muted)">React · Node · PostgreSQL</div></div>
+    </div>
+  </section>
+
+  <!-- 6. ESPACE -->
+  <section id="espace">
+    <div class="sec-head"><span class="sec-num">06</span><h2>Espace &amp; rythme</h2></div>
+    <p class="sec-intro">Une échelle d'espacement basée sur <strong>4&nbsp;px</strong> (celle de Tailwind). Le blanc est un matériau : dans une direction minimale, l'air entre les blocs porte autant que le contenu. Colonne de lecture bornée à <strong>~65&nbsp;caractères</strong>.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="margin-top:0">Échelle (base 4px)</h3>
+        <div class="space">
+          <div class="space-row"><span class="tok">2 · 8px</span><div class="space-bar" style="width:8px"></div></div>
+          <div class="space-row"><span class="tok">3 · 12px</span><div class="space-bar" style="width:12px"></div></div>
+          <div class="space-row"><span class="tok">4 · 16px</span><div class="space-bar" style="width:16px"></div></div>
+          <div class="space-row"><span class="tok">6 · 24px</span><div class="space-bar" style="width:24px"></div></div>
+          <div class="space-row"><span class="tok">8 · 32px</span><div class="space-bar" style="width:32px"></div></div>
+          <div class="space-row"><span class="tok">12 · 48px</span><div class="space-bar" style="width:48px"></div></div>
+          <div class="space-row"><span class="tok">20 · 80px</span><div class="space-bar" style="width:80px"></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Rayons &amp; élévation</h3>
+        <div class="stack" style="gap:12px">
+          <div style="display:flex;gap:12px;align-items:center"><div style="width:52px;height:40px;border-radius:6px;background:var(--surface-2);border:1px solid var(--border)"></div><span class="note">sm · 6px — badges, boutons</span></div>
+          <div style="display:flex;gap:12px;align-items:center"><div style="width:52px;height:40px;border-radius:10px;background:var(--surface-2);border:1px solid var(--border)"></div><span class="note">base · 10px — cartes, champs</span></div>
+          <div style="display:flex;gap:12px;align-items:center"><div style="width:52px;height:40px;border-radius:16px;background:var(--surface);box-shadow:var(--shadow)"></div><span class="note">lg · 16px + ombre — projets</span></div>
+        </div>
+        <p class="note" style="margin-top:16px">Ombres discrètes, portées courtes. En minimal, la bordure fine fait le gros du travail ; l'ombre ne sort qu'au survol.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. COMPOSANTS -->
+  <section id="composants">
+    <div class="sec-head"><span class="sec-num">07</span><h2>Composants</h2></div>
+    <p class="sec-intro">Les briques réutilisables, montrées en vrai (survole-les). Elles suffisent à couvrir 90&nbsp;% du site : boutons, badges de stack, carte de projet, lien de navigation.</p>
+
+    <h3>Boutons</h3>
+    <div class="card">
+      <div class="btn-row">
+        <a href="#composants" class="btn btn--primary">Voir le projet →</a>
+        <a href="#composants" class="btn btn--ghost">Télécharger le CV</a>
+        <span class="note">primaire = 1 par écran max · fantôme pour le secondaire</span>
+      </div>
+    </div>
+
+    <h3>Badges de stack &amp; d'état</h3>
+    <div class="card">
+      <div class="badges">
+        <span class="badge">TypeScript</span>
+        <span class="badge">React</span>
+        <span class="badge">Node.js</span>
+        <span class="badge badge--accent">Next.js</span>
+        <span class="badge badge--ok">● Disponible</span>
+        <span class="badge badge--warn">◗ En cours</span>
+      </div>
+    </div>
+
+    <h3>Carte de projet</h3>
+    <div class="proj">
+      <div class="top">
+        <h4>Plateforme de réservation</h4>
+        <span class="yr">2025</span>
+      </div>
+      <p>Application fullstack de réservation en temps réel. Paiement Stripe, tableau de bord admin, 12k&nbsp;utilisateurs actifs.</p>
+      <div class="badges" style="margin-bottom:16px">
+        <span class="badge">Next.js</span><span class="badge">PostgreSQL</span><span class="badge">Stripe</span>
+      </div>
+      <a href="#composants" class="link">Lire l'étude de cas →</a>
+    </div>
+  </section>
+
+  <!-- 8. PAGES -->
+  <section id="pages">
+    <div class="sec-head"><span class="sec-num">08</span><h2>Anatomie des pages</h2></div>
+    <p class="sec-intro">Une architecture volontairement plate : une page d'accueil qui fait 80&nbsp;% du travail, plus des pages de détail. Ordre pensé pour le regard du recruteur — l'essentiel avant le scroll.</p>
+
+    <h3>Accueil <span class="note">— l'écran qui décide</span></h3>
+    <div class="anatomy">
+      <div class="zone"><span class="z">Hero</span><span class="d">Nom, rôle (« Développeur fullstack »), une phrase de promesse, badge « disponible », 2 CTA : voir les projets / me contacter.</span></div>
+      <div class="zone"><span class="z">Projets</span><span class="d">2–3 cartes phares en avant. C'est la section reine — elle vient tout de suite après le hero.</span></div>
+      <div class="zone"><span class="z">À propos</span><span class="d">Parcours condensé, stack maîtrisée, ce qui te distingue. Court, humain, factuel.</span></div>
+      <div class="zone"><span class="z">Blog</span><span class="d">3 derniers articles en aperçu. Preuve d'expertise + SEO. Optionnel au lancement.</span></div>
+      <div class="zone"><span class="z">Contact</span><span class="d">Rappel du CTA, e-mail, GitHub, LinkedIn, CV en PDF. Toujours atteignable.</span></div>
+    </div>
+
+    <h3>Pages dédiées</h3>
+    <div class="anatomy">
+      <div class="zone"><span class="z">/projets/[slug]</span><span class="d">Étude de cas : problème → solution → rôle → résultat mesurable → stack → liens démo/code.</span></div>
+      <div class="zone"><span class="z">/blog + /blog/[slug]</span><span class="d">Liste + article. MDX, SSG, bon pour le SEO. Typo de lecture longue soignée.</span></div>
+      <div class="zone"><span class="z">Nav globale</span><span class="d">Logo/nom, liens Projets · À propos · Blog · Contact, toggle thème, bouton CV. Sticky, discrète.</span></div>
+    </div>
+  </section>
+
+  <!-- 9. SUITE -->
+  <section id="suite">
+    <div class="sec-head"><span class="sec-num">09</span><h2>Prochaines étapes</h2></div>
+    <p class="sec-intro">Le cadrage est posé. Voici l'ordre de marche proposé pour passer au build — chaque étape validable avant la suivante.</p>
+    <div class="steps">
+      <div class="step"><span class="n"></span><div><h4>Valider ce cadrage</h4><p>Confirmer palette, ton et arbo — ou ajuster. C'est le moment le moins cher pour changer d'avis.</p></div></div>
+      <div class="step"><span class="n"></span><div><h4>Rassembler le contenu réel</h4><p>Choisir les 2–3 projets phares, écrire leurs études de cas, préparer le CV PDF, la bio, les liens. Le contenu avant le pixel.</p></div></div>
+      <div class="step"><span class="n"></span><div><h4>Poser les fondations Next.js</h4><p>Init du projet, Tailwind configuré avec ces tokens (couleurs, échelle, typo via <code>next/font</code>), thème clair/sombre, layout de base.</p></div></div>
+      <div class="step"><span class="n"></span><div><h4>Construire les composants</h4><p>Boutons, badges, carte projet, nav, footer — la bibliothèque montrée en section 07.</p></div></div>
+      <div class="step"><span class="n"></span><div><h4>Assembler les pages &amp; livrer</h4><p>Accueil, projets, blog, contact. Puis SEO, perf (viser 100 Lighthouse), déploiement Vercel, nom de domaine.</p></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Cadrage portfolio — v1 · 15 juillet 2026.</b> Document de référence vivant : à relire si une décision du cadre (section 01) change. Cette page applique elle-même le design system qu'elle décrit.</p>
+  </footer>
+
+</div>
+
+<script>
+  // révélation douce au chargement, sans casser si reduced-motion
+  document.querySelectorAll('section').forEach(function (s, i) {
+    s.classList.add('reveal');
+    s.style.animationDelay = Math.min(i * 40, 200) + 'ms';
+  });
+
+  // Toggle de thème clair/sombre (persistant)
+  (function () {
+    var root = document.documentElement;
+    var icon = document.getElementById('themeIcon');
+    var label = document.getElementById('themeLabel');
+    function apply(theme) {
+      root.setAttribute('data-theme', theme);
+      var dark = theme === 'dark';
+      icon.textContent = dark ? '☀' : '☾';
+      label.textContent = dark ? 'Clair' : 'Sombre';
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('cadrage-theme'); } catch (e) {}
+    var start = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    apply(start);
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      apply(next);
+      try { localStorage.setItem('cadrage-theme', next); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>
