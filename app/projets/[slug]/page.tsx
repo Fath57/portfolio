@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects, getProject } from "@/lib/projects";
 import { Badge } from "@/components/ui/badge";
@@ -40,9 +41,22 @@ export default async function ProjectPage({ params }: Props) {
         <span aria-hidden>←</span> Tous les projets
       </Link>
 
-      <div className="mt-8 overflow-hidden rounded-lg border border-border bg-surface-2 px-8 pt-8 sm:px-16 sm:pt-10">
-        <ProjectArt slug={project.slug} className="mx-auto block w-full max-w-xl" />
-      </div>
+      {project.image ? (
+        <div className="relative mt-8 aspect-[2/1] overflow-hidden rounded-lg border border-border bg-surface-2">
+          <Image
+            src={project.image}
+            alt={`Capture d'écran de ${project.title}`}
+            fill
+            sizes="(min-width: 1024px) 896px, 100vw"
+            className="object-cover object-top"
+            priority
+          />
+        </div>
+      ) : (
+        <div className="mt-8 overflow-hidden rounded-lg border border-border bg-surface-2 px-8 pt-8 sm:px-16 sm:pt-10">
+          <ProjectArt slug={project.slug} className="mx-auto block w-full max-w-xl" />
+        </div>
+      )}
 
       <header className="mt-10">
         <span className="font-mono text-sm text-ink-faint tabular-nums">

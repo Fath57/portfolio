@@ -7,6 +7,8 @@ export type Project = {
   summary: string;
   stack: string[];
   featured: boolean;
+  /** Capture d'écran dans public/ ; sinon l'illustration SVG du slug est utilisée. */
+  image?: string;
   links?: { demo?: string; code?: string };
   caseStudy?: {
     problem: string;
@@ -25,6 +27,8 @@ export const projects: Project[] = [
       "Plateforme de billetterie pour l'Afrique de l'Ouest : vente en ligne, paiement mobile money, billets PDF avec QR code et gestion des tickets physiques.",
     stack: ["Laravel", "Next.js", "React", "FedaPay"],
     featured: false,
+    image: "/projects/tick-africa.jpg",
+    links: { demo: "https://tick.africa" },
     caseStudy: {
       problem:
         "En Afrique de l'Ouest, la billetterie événementielle reste largement physique : vente en espèces, fraude sur les billets, aucun suivi des entrées ni des revenus pour les organisateurs.",
