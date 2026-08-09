@@ -18,8 +18,27 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "tick-africa",
+    title: "Tick Africa · Billetterie événementielle",
+    year: "2025",
+    summary:
+      "Plateforme de billetterie pour l'Afrique de l'Ouest : vente en ligne, paiement mobile money, billets PDF avec QR code et gestion des tickets physiques.",
+    stack: ["Laravel", "Next.js", "React", "FedaPay"],
+    featured: false,
+    caseStudy: {
+      problem:
+        "En Afrique de l'Ouest, la billetterie événementielle reste largement physique : vente en espèces, fraude sur les billets, aucun suivi des entrées ni des revenus pour les organisateurs.",
+      solution:
+        "Une plateforme complète : vente en ligne avec paiement mobile money (FedaPay), génération de billets PDF sécurisés par QR code, gestion des tickets physiques et portefeuille organisateur avec suivi des transactions.",
+      role:
+        "Développement fullstack : API Laravel, front-end Next.js / React, middleware et API mobile.",
+      result:
+        "Plateforme opérationnelle couvrant tout le cycle de la billetterie, de la création d'événement au contrôle des entrées.",
+    },
+  },
+  {
     slug: "satis-gestion-plaintes",
-    title: "Satis — Gestion des plaintes et réclamations",
+    title: "Satis · Gestion des plaintes et réclamations",
     year: "2022",
     summary:
       "Application métier de gestion électronique des plaintes et réclamations pour banques, institutions de microfinance et compagnies d'assurance.",
@@ -27,7 +46,7 @@ export const projects: Project[] = [
     featured: true,
     caseStudy: {
       problem:
-        "Les banques, institutions de microfinance et assurances doivent tracer et traiter les réclamations clients dans des délais réglementaires — un processus géré manuellement, sans visibilité ni historique fiable.",
+        "Les banques, institutions de microfinance et assurances doivent tracer et traiter les réclamations clients dans des délais réglementaires. Un processus jusque-là manuel, sans visibilité ni historique fiable.",
       solution:
         "Une application de gestion électronique des plaintes : enregistrement, workflow de traitement, suivi des délais et reporting de conformité.",
       role:
@@ -38,7 +57,7 @@ export const projects: Project[] = [
   },
   {
     slug: "digit-immo",
-    title: "Digit-Immo — Gestion des immobilisations",
+    title: "Digit-Immo · Gestion des immobilisations",
     year: "2023",
     summary:
       "Application web de gestion du patrimoine et d'inventaire des biens, déployée au Port Autonome de Cotonou, à la SOBEBRA et à la Loterie Nationale du Bénin.",
@@ -76,7 +95,7 @@ export const projects: Project[] = [
   },
   {
     slug: "procar-suivi-evaluation",
-    title: "Plateforme de suivi-évaluation — PROCAR",
+    title: "PROCAR · Plateforme de suivi-évaluation",
     year: "2024",
     summary:
       "Système de suivi-évaluation des activités et indicateurs d'un programme : saisie, suivi et reporting.",
@@ -93,7 +112,7 @@ export const projects: Project[] = [
   },
   {
     slug: "fondation-claudine-talon",
-    title: "Systèmes métier — Fondation Claudine Talon",
+    title: "Fondation Claudine Talon · Systèmes métier",
     year: "2024",
     summary:
       "Deux systèmes métier : pilotage d'un programme éducatif (indicateurs, bénéficiaires, reporting) et gestion des dons de sang (campagnes, donneurs, collectes).",
@@ -110,7 +129,7 @@ export const projects: Project[] = [
   },
   {
     slug: "zibaa-finplex",
-    title: "Zibaa & Finplex — Produits SaaS",
+    title: "Zibaa & Finplex · Produits SaaS",
     year: "2024",
     summary:
       "Produits SaaS développés et maintenus chez Nautilus Technology : nouvelles fonctionnalités, refactoring et optimisation des performances.",

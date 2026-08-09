@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { projects, getProject } from "@/lib/projects";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
+import { ProjectArt } from "@/components/ui/project-art";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -39,7 +40,11 @@ export default async function ProjectPage({ params }: Props) {
         <span aria-hidden>←</span> Tous les projets
       </Link>
 
-      <header className="mt-8">
+      <div className="mt-8 overflow-hidden rounded-lg border border-border bg-surface-2 px-8 pt-8 sm:px-16 sm:pt-10">
+        <ProjectArt slug={project.slug} className="mx-auto block w-full max-w-xl" />
+      </div>
+
+      <header className="mt-10">
         <span className="font-mono text-sm text-ink-faint tabular-nums">
           {project.year}
         </span>
