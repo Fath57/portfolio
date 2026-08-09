@@ -21,7 +21,7 @@ export function Projects() {
       </div>
       <Link
         href="/projets"
-        className="mt-8 inline-flex items-center gap-1.5 font-mono text-xs text-accent hover:gap-2.5"
+        className="mt-8 inline-flex items-center gap-1.5 font-mono text-xs text-accent transition-[gap] hover:gap-2.5"
       >
         Tous les projets <span aria-hidden>→</span>
       </Link>

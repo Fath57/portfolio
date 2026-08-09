@@ -60,8 +60,14 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-dvh flex flex-col">
+        <a
+          href="#contenu"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-accent-ink"
+        >
+          Aller au contenu
+        </a>
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main id="contenu" className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

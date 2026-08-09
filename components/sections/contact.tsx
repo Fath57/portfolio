@@ -9,7 +9,7 @@ export function Contact() {
       className="mx-auto max-w-5xl scroll-mt-20 border-t border-border px-6 py-16"
     >
       <SectionHeading
-        num="04"
+        num="03"
         title="Travaillons ensemble"
         intro="Un poste, un projet, ou juste une question ? Écris-moi — je réponds vite."
       />
@@ -23,10 +23,20 @@ export function Contact() {
         <a href={`mailto:${site.email}`} className="hover:text-accent">
           {site.email}
         </a>
-        <a href={site.socials.github} className="hover:text-accent">
+        <a
+          href={site.socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-accent"
+        >
           GitHub ↗
         </a>
-        <a href={site.socials.linkedin} className="hover:text-accent">
+        <a
+          href={site.socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-accent"
+        >
           LinkedIn ↗
         </a>
       </div>

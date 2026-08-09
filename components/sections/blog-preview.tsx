@@ -36,7 +36,7 @@ export function BlogPreview() {
       </ul>
       <Link
         href="/blog"
-        className="mt-6 inline-flex items-center gap-1.5 font-mono text-xs text-accent hover:gap-2.5"
+        className="mt-6 inline-flex items-center gap-1.5 font-mono text-xs text-accent transition-[gap] hover:gap-2.5"
       >
         Tous les articles <span aria-hidden>→</span>
       </Link>

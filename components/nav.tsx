@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { nav, site } from "@/lib/site";
+import { site } from "@/lib/site";
 import { ThemeToggle } from "./theme-toggle";
+import { NavLinks } from "./nav-links";
+import { MobileNav } from "./mobile-nav";
 import { ButtonLink } from "./ui/button";
 
-// Nav globale sticky et discrète : nom, liens, thème, bouton CV.
+// Nav globale sticky et discrète : nom, liens, thème, bouton CV, menu mobile.
 export function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md backdrop-saturate-150">
@@ -13,26 +15,14 @@ export function Nav() {
           <span className="text-accent">.</span>
         </Link>
 
-        <nav
-          aria-label="Navigation principale"
-          className="ml-auto hidden items-center gap-1 sm:flex"
-        >
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-[--radius-sm] px-3 py-1.5 font-mono text-xs text-ink-muted transition-colors hover:bg-surface-2 hover:text-ink"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <NavLinks />
 
         <div className="ml-auto flex items-center gap-2 sm:ml-2">
           <ThemeToggle />
           <ButtonLink href={site.cvHref} variant="ghost" className="hidden sm:inline-flex">
             CV
           </ButtonLink>
+          <MobileNav />
         </div>
       </div>
     </header>

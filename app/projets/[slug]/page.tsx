@@ -5,85 +5,88 @@ import { projects, getProject } from "@/lib/projects";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
 
-// Génère les pages statiques pour chaque projet (SSG).
+type Props = { params: Promise<{ slug: string }> };
+
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
   return { title: project.title, description: project.summary };
 }
 
-const steps = [
-  { key: "problem", label: "Problème" },
-  { key: "solution", label: "Solution" },
-  { key: "role", label: "Mon rôle" },
-  { key: "result", label: "Résultat" },
-] as const;
-
-export default async function ProjectPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
 
+  const caseStudy = project.caseStudy && [
+    { label: "Problème", text: project.caseStudy.problem },
+    { label: "Solution", text: project.caseStudy.solution },
+    { label: "Mon rôle", text: project.caseStudy.role },
+    { label: "Résultat", text: project.caseStudy.result },
+  ];
+
   return (
-    <article className="mx-auto max-w-reading px-6 py-16 sm:py-20">
+    <article className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
       <Link
         href="/projets"
-        className="font-mono text-xs text-ink-muted hover:text-accent"
+        className="inline-flex items-center gap-1.5 font-mono text-xs text-ink-muted transition-colors hover:text-accent"
       >
-        ← Tous les projets
+        <span aria-hidden>←</span> Tous les projets
       </Link>
 
-      <header className="mt-6">
-        <div className="flex items-baseline justify-between gap-4">
-          <h1 className="font-display text-4xl font-bold">{project.title}</h1>
-          <span className="font-mono text-sm text-ink-faint tabular-nums">
-            {project.year}
-          </span>
-        </div>
-        <p className="mt-4 text-lg text-ink-muted">{project.summary}</p>
-        <div className="mt-5 flex flex-wrap gap-2">
+      <header className="mt-8">
+        <span className="font-mono text-sm text-ink-faint tabular-nums">
+          {project.year}
+        </span>
+        <h1 className="mt-2 font-display text-4xl font-bold">{project.title}</h1>
+        <p className="mt-4 max-w-reading text-lg text-ink-muted">
+          {project.summary}
+        </p>
+        <div className="mt-6 flex flex-wrap gap-2">
           {project.stack.map((tech) => (
             <Badge key={tech}>{tech}</Badge>
           ))}
         </div>
+        {(project.links?.demo || project.links?.code) && (
+          <div className="mt-8 flex flex-wrap gap-3">
+            {project.links.demo && (
+              <ButtonLink
+                href={project.links.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Voir la démo ↗
+              </ButtonLink>
+            )}
+            {project.links.code && (
+              <ButtonLink
+                href={project.links.code}
+                variant={project.links.demo ? "ghost" : "primary"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Voir le code ↗
+              </ButtonLink>
+            )}
+          </div>
+        )}
       </header>
 
-      {project.caseStudy && (
-        <div className="mt-12 space-y-8">
-          {steps.map((step) => (
-            <section key={step.key}>
+      {caseStudy && (
+        <div className="mt-14 max-w-reading space-y-10 border-t border-border pt-10">
+          {caseStudy.map(({ label, text }) => (
+            <section key={label}>
               <h2 className="mb-2 font-mono text-xs uppercase tracking-wider text-accent">
-                {step.label}
+                {label}
               </h2>
-              <p className="text-ink">{project.caseStudy![step.key]}</p>
+              <p className="text-ink-muted">{text}</p>
             </section>
           ))}
-        </div>
-      )}
-
-      {(project.links?.demo || project.links?.code) && (
-        <div className="mt-12 flex flex-wrap gap-3 border-t border-border pt-8">
-          {project.links.demo && (
-            <ButtonLink href={project.links.demo}>Voir la démo →</ButtonLink>
-          )}
-          {project.links.code && (
-            <ButtonLink href={project.links.code} variant="ghost">
-              Code source
-            </ButtonLink>
-          )}
         </div>
       )}
     </article>

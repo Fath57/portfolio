@@ -6,7 +6,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projets/${project.slug}`}
-      className="group block rounded-[--radius-lg] border border-border bg-surface p-6 shadow-[--shadow-card] transition-[box-shadow,transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[--shadow-lift] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+      className="group block rounded-lg border border-border bg-surface p-6 shadow-card transition-[box-shadow,transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-lift motion-reduce:transition-none motion-reduce:hover:translate-y-0"
     >
       <div className="flex items-baseline justify-between gap-3">
         <h3 className="font-display text-lg font-semibold">{project.title}</h3>
