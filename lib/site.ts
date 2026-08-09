@@ -7,7 +7,7 @@ export const site = {
     "7 ans d'expérience dans la conception d'applications métier et de systèmes d'information de gestion — de l'architecture à la mise en production.",
   description:
     "Développeur fullstack. 7 ans d'expérience en applications métier : Laravel, NestJS, Vue.js, React, PostgreSQL.",
-  url: "https://ton-domaine.dev", // TODO : remplace par ton vrai domaine une fois déployé
+  url: "https://portfolio-six-ivory-69.vercel.app", // domaine perso à brancher plus tard (Vercel → Settings → Domains)
   available: true, // affiche le badge « Disponible »
   email: "aattayaya@gmail.com",
   location: "Nantes, France",
