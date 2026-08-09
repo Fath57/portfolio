@@ -80,17 +80,19 @@ export const projects: Project[] = [
   },
   {
     slug: "saas-demenagement",
-    title: "SaaS de gestion pour déménageurs",
+    title: "DemCRM · SaaS pour déménageurs",
     year: "2025",
     summary:
-      "Plateforme de gestion opérationnelle à destination des professionnels du déménagement, développée au sein de L'Agence du Déménagement.",
+      "CRM de gestion pour les professionnels du déménagement : devis, plannings, factures et suivi client, développé au sein de L'Agence du Déménagement.",
     stack: ["Laravel", "Nuxt.js", "PostgreSQL", "Dokku"],
     featured: true,
+    image: "/projects/demcrm.png",
+    links: { demo: "https://demcrm.com" },
     caseStudy: {
       problem:
         "Les professionnels du déménagement pilotaient leur activité avec des outils dispersés, sans plateforme métier dédiée.",
       solution:
-        "Un SaaS couvrant les fonctionnalités métier de gestion opérationnelle, livré en continu par sprints.",
+        "Un CRM métier centralisant devis, plannings, factures et suivi client, livré en continu par sprints.",
       role:
         "Développement fullstack (Laravel, Nuxt.js), architecture de l'API REST, modélisation PostgreSQL, mise en place du pipeline CI/CD (Dokku, GitHub Actions) et accompagnement de stagiaires.",
       result:
