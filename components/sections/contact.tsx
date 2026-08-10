@@ -9,7 +9,7 @@ export function Contact() {
       className="mx-auto max-w-5xl scroll-mt-20 border-t border-border px-6 py-16"
     >
       <SectionHeading
-        num="03"
+        num="04"
         title="Travaillons ensemble"
         intro="Un poste, un projet ou juste une question ? Écris-moi, je réponds vite."
       />
