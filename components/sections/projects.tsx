@@ -11,8 +11,8 @@ export function Projects() {
     >
       <SectionHeading
         num="01"
-        title="Projets sélectionnés"
-        intro="Quelques projets dont je suis fier, avec pour chacun le contexte, ce que j'ai fait et ce que ça a donné."
+        title="Projets"
+        intro="Trois projets qui donnent une bonne idée de ce que je fais."
       />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {featuredProjects.map((project) => (
