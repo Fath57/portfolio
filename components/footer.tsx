@@ -28,6 +28,8 @@ export function Footer() {
           </a>
           <a
             href={`mailto:${site.email}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="font-mono text-xs text-ink-muted transition-colors hover:text-accent"
           >
             E-mail

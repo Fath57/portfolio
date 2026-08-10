@@ -19,7 +19,9 @@ export function Contact() {
         intro="Un poste, un projet ou juste une question ? Écris-moi, je réponds vite."
       />
       <div className="flex flex-wrap items-center gap-3">
-        <ButtonLink href={`mailto:${site.email}`}>M'écrire</ButtonLink>
+        <ButtonLink href={`mailto:${site.email}`} target="_blank" rel="noopener noreferrer">
+          M'écrire
+        </ButtonLink>
         <ButtonLink href={site.cvHref} variant="ghost">
           Télécharger le CV
         </ButtonLink>
@@ -28,6 +30,8 @@ export function Contact() {
         Vous préférez recevoir le CV par mail ?{" "}
         <a
           href={cvParMail}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-accent underline decoration-accent-line underline-offset-4 transition-colors hover:decoration-accent"
         >
           Demandez-le en un clic
@@ -35,7 +39,12 @@ export function Contact() {
         .
       </p>
       <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2 font-mono text-xs text-ink-muted">
-        <a href={`mailto:${site.email}`} className="hover:text-accent">
+        <a
+          href={`mailto:${site.email}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-accent"
+        >
           {site.email}
         </a>
         <a
