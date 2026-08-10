@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import { AnalyticsEvents } from "@/components/analytics-events";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -78,6 +81,9 @@ export default function RootLayout({
         <Nav />
         <main id="contenu" className="flex-1">{children}</main>
         <Footer />
+        <AnalyticsEvents />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
