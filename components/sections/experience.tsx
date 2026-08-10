@@ -28,7 +28,7 @@ const steps = [
     role: "Développeur back-end puis fullstack",
     company: "DMD, Suntech, Soft Digital",
     place: "Cotonou",
-    note: "Beaucoup de Laravel, surtout pour la banque et la microfinance.",
+    note: "Applications web et mobiles, surtout pour la banque et la microfinance.",
   },
 ] as const;
 
