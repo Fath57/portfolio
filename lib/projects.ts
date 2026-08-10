@@ -24,20 +24,19 @@ export const projects: Project[] = [
     title: "Tick Africa · Billetterie événementielle",
     year: "2025",
     summary:
-      "Plateforme de billetterie pour l'Afrique de l'Ouest : vente en ligne, paiement mobile money, billets PDF avec QR code et gestion des tickets physiques.",
+      "Billetterie en ligne pour l'Afrique de l'Ouest : paiement mobile money, billets QR code et gestion des tickets physiques.",
     stack: ["Laravel", "Next.js", "React", "FedaPay"],
     featured: false,
     image: "/projects/tick-africa.jpg",
     links: { demo: "https://tick.africa" },
     caseStudy: {
       problem:
-        "En Afrique de l'Ouest, la billetterie événementielle reste largement physique : vente en espèces, fraude sur les billets, aucun suivi des entrées ni des revenus pour les organisateurs.",
+        "En Afrique de l'Ouest, les billets d'événements se vendent encore beaucoup en espèces, de la main à la main. Résultat : de la fraude, et des organisateurs qui ne savent pas vraiment combien de personnes sont entrées ni combien ils ont encaissé.",
       solution:
-        "Une plateforme complète : vente en ligne avec paiement mobile money (FedaPay), génération de billets PDF sécurisés par QR code, gestion des tickets physiques et portefeuille organisateur avec suivi des transactions.",
-      role:
-        "Développement fullstack : API Laravel, front-end Next.js / React, middleware et API mobile.",
+        "Tick Africa permet de vendre ses billets en ligne et d'encaisser par mobile money. Les billets sont des PDF sécurisés par QR code, les tickets physiques sont gérés aussi, et chaque organisateur suit ses ventes depuis son portefeuille.",
+      role: "J'ai développé l'API Laravel, le front Next.js et l'API mobile.",
       result:
-        "Plateforme opérationnelle couvrant tout le cycle de la billetterie, de la création d'événement au contrôle des entrées.",
+        "La plateforme est en ligne sur tick.africa et couvre le Bénin, la Côte d'Ivoire et le Togo.",
     },
   },
   {
@@ -45,18 +44,18 @@ export const projects: Project[] = [
     title: "Satis · Gestion des plaintes et réclamations",
     year: "2022",
     summary:
-      "Application métier de gestion électronique des plaintes et réclamations pour banques, institutions de microfinance et compagnies d'assurance.",
+      "Gestion des plaintes et réclamations pour les banques, les institutions de microfinance et les assurances.",
     stack: ["Laravel", "PostgreSQL", "MongoDB", "Docker"],
     featured: true,
     caseStudy: {
       problem:
-        "Les banques, institutions de microfinance et assurances doivent tracer et traiter les réclamations clients dans des délais réglementaires. Un processus jusque-là manuel, sans visibilité ni historique fiable.",
+        "Les banques et les institutions de microfinance ont l'obligation de traiter les réclamations de leurs clients dans des délais réglementaires. Beaucoup le faisaient encore à la main, sans historique fiable ni visibilité sur les dossiers en retard.",
       solution:
-        "Une application de gestion électronique des plaintes : enregistrement, workflow de traitement, suivi des délais et reporting de conformité.",
+        "Satis enregistre chaque plainte, la fait passer par un circuit de traitement avec des délais à respecter, et produit les rapports de conformité attendus par le régulateur.",
       role:
-        "Architecture et développement de la solution : API REST sécurisées, packages Laravel réutilisables, optimisation des performances et du processus de mise en production.",
+        "J'ai conçu l'architecture et développé la solution : API sécurisées, packages Laravel réutilisables, mise en production.",
       result:
-        "Solution adoptée par des banques, institutions de microfinance et compagnies d'assurance, avec maintenance évolutive et formation des utilisateurs.",
+        "Satis est utilisé par des banques, des institutions de microfinance et des compagnies d'assurance. J'en ai aussi assuré la maintenance et formé les utilisateurs.",
     },
   },
   {
@@ -69,13 +68,13 @@ export const projects: Project[] = [
     featured: true,
     caseStudy: {
       problem:
-        "Le suivi des immobilisations et les campagnes d'inventaire reposaient sur des registres et tableurs, sources d'écarts et de pertes de traçabilité.",
+        "Le suivi des immobilisations se faisait sur des registres papier et des tableurs. À chaque inventaire, des écarts et des biens introuvables.",
       solution:
-        "Une application web centralisant le patrimoine : fiches d'immobilisations, campagnes d'inventaire et états de restitution.",
+        "Une application web qui centralise tout le patrimoine : fiches d'immobilisations, campagnes d'inventaire et états de restitution.",
       role:
-        "Conception et développement en responsable technique, de la modélisation des données à la mise en production.",
+        "J'ai mené le projet en responsable technique, de la modélisation des données à la mise en production.",
       result:
-        "En production dans trois organisations : le Port Autonome de Cotonou, la SOBEBRA et la Loterie Nationale du Bénin.",
+        "L'application tourne au Port Autonome de Cotonou, à la SOBEBRA et à la Loterie Nationale du Bénin.",
     },
   },
   {
@@ -90,13 +89,13 @@ export const projects: Project[] = [
     links: { demo: "https://demcrm.com" },
     caseStudy: {
       problem:
-        "Les professionnels du déménagement pilotaient leur activité avec des outils dispersés, sans plateforme métier dédiée.",
+        "Les déménageurs jonglaient entre tableurs, agendas et outils de facturation séparés. Rien n'était centralisé, et les informations se perdaient entre le devis et le jour du déménagement.",
       solution:
-        "Un CRM métier centralisant devis, plannings, factures et suivi client, livré en continu par sprints.",
+        "DemCRM regroupe tout au même endroit : devis, plannings, factures et suivi client.",
       role:
-        "Développement fullstack (Laravel, Nuxt.js), architecture de l'API REST, modélisation PostgreSQL, mise en place du pipeline CI/CD (Dokku, GitHub Actions) et accompagnement de stagiaires.",
+        "Développement fullstack en Laravel et Nuxt.js : architecture de l'API, modélisation de la base PostgreSQL, pipeline CI/CD, et accompagnement de stagiaires.",
       result:
-        "Plateforme en production avec déploiement automatisé et livraisons continues.",
+        "Le produit est en ligne sur demcrm.com, avec un déploiement automatisé à chaque livraison.",
     },
   },
   {
@@ -104,16 +103,16 @@ export const projects: Project[] = [
     title: "PROCAR · Plateforme de suivi-évaluation",
     year: "2024",
     summary:
-      "Système de suivi-évaluation des activités et indicateurs d'un programme : saisie, suivi et reporting.",
+      "Suivi-évaluation d'un programme : saisie des données, suivi des indicateurs et reporting.",
     stack: ["Laravel", "Vue.js", "PostgreSQL"],
     featured: false,
     caseStudy: {
       problem:
-        "Le suivi des activités et des indicateurs du programme était consolidé manuellement, avec un reporting lent et difficile à fiabiliser.",
+        "Le suivi des indicateurs du programme se faisait à la main, en consolidant des fichiers. Le reporting prenait des semaines et restait difficile à fiabiliser.",
       solution:
-        "Une plateforme de suivi-évaluation : saisie structurée des données, suivi des indicateurs et génération des rapports.",
-      role: "Conception et développement en responsable technique.",
-      result: "En exploitation au sein du projet PROCAR.",
+        "Une plateforme où les équipes saisissent leurs données, suivent leurs indicateurs et génèrent leurs rapports.",
+      role: "J'ai conçu et développé la plateforme en responsable technique.",
+      result: "Elle est en exploitation au sein du projet PROCAR.",
     },
   },
   {
@@ -126,11 +125,11 @@ export const projects: Project[] = [
     featured: false,
     caseStudy: {
       problem:
-        "La fondation suivait son programme éducatif et ses campagnes de don de sang sans outil centralisé, au détriment du reporting et du suivi des bénéficiaires.",
+        "La fondation suivait son programme éducatif et ses collectes de sang sans outil centralisé. Difficile dans ces conditions de suivre les bénéficiaires ou de produire un reporting fiable.",
       solution:
-        "Deux applications dédiées : un système de pilotage du programme éducatif et un système de gestion des dons de sang.",
-      role: "Conception et développement des deux systèmes en responsable technique.",
-      result: "Systèmes livrés et utilisés par la fondation pour le suivi et le reporting.",
+        "Deux applications dédiées : l'une pour piloter le programme éducatif (bénéficiaires, indicateurs, reporting), l'autre pour gérer les campagnes de don de sang.",
+      role: "J'ai conçu et développé les deux systèmes en responsable technique.",
+      result: "Les deux sont livrés et utilisés par les équipes de la fondation.",
     },
   },
   {
@@ -143,13 +142,13 @@ export const projects: Project[] = [
     featured: false,
     caseStudy: {
       problem:
-        "Des produits SaaS en exploitation devaient évoluer sans régression : nouvelles fonctionnalités, dette technique et performances à maîtriser.",
+        "Des produits SaaS déjà en production devaient continuer d'évoluer sans rien casser : nouvelles fonctionnalités, dette technique à résorber, performances à tenir.",
       solution:
-        "Évolution continue des produits : refactoring, optimisation des performances et industrialisation des déploiements (CI/CD).",
+        "Un travail de fond continu : refactoring, optimisation des performances et automatisation des déploiements.",
       role:
-        "Développeur fullstack / lead : architecture technique, planification des sprints, encadrement de développeurs juniors.",
+        "Lead développeur : choix d'architecture, planification des sprints, encadrement des juniors.",
       result:
-        "Produits maintenus en production avec des pipelines CI/CD automatisés (Dokku, Drone, GitHub Actions).",
+        "Les produits sont toujours en production, avec des pipelines CI/CD automatisés (Dokku, Drone, GitHub Actions).",
     },
   },
 ];

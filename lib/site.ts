@@ -4,9 +4,9 @@ export const site = {
   role: "Développeur fullstack",
   // Une phrase de promesse, factuelle, à la première personne.
   tagline:
-    "7 ans d'expérience dans la conception d'applications métier et de systèmes d'information de gestion — de l'architecture à la mise en production.",
+    "Depuis 7 ans, je construis des applications métier : SaaS, banque, secteur public. De la base de données à la mise en production.",
   description:
-    "Développeur fullstack. 7 ans d'expérience en applications métier : Laravel, NestJS, Vue.js, React, PostgreSQL.",
+    "Développeur fullstack à Nantes. 7 ans d'expérience sur des applications métier : Laravel, NestJS, Vue.js, React, PostgreSQL.",
   url: "https://arafathattayaya.dev",
   available: true, // affiche le badge « Disponible »
   email: "aattayaya@gmail.com",

@@ -11,7 +11,7 @@ export function Contact() {
       <SectionHeading
         num="03"
         title="Travaillons ensemble"
-        intro="Un poste, un projet, ou juste une question ? Écris-moi — je réponds vite."
+        intro="Un poste, un projet ou juste une question ? Écris-moi, je réponds vite."
       />
       <div className="flex flex-wrap items-center gap-3">
         <ButtonLink href={`mailto:${site.email}`}>M'écrire</ButtonLink>

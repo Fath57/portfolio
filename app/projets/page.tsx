@@ -16,8 +16,7 @@ export default function ProjectsPage() {
           Ce que j'ai construit
         </h1>
         <p className="mt-4 max-w-reading text-lg text-ink-muted">
-          Chaque projet est une étude de cas : le problème, ma solution, mon
-          rôle et le résultat obtenu.
+          Pour chaque projet : le contexte, ce que j'ai fait et le résultat.
         </p>
       </header>
       <div className="grid gap-4 sm:grid-cols-2">

@@ -26,16 +26,16 @@ export function About() {
       <div className="grid gap-10 md:grid-cols-[1fr_auto]">
         <div className="max-w-reading space-y-4 text-ink-muted">
           <p>
-            Développeur fullstack, je conçois depuis 7 ans des applications
-            métier et des systèmes d'information de gestion : SaaS, banque et
-            microfinance, marchés publics, projets internationaux.
+            Ça fait 7 ans que je développe des applications métier : des SaaS,
+            des outils pour la banque et la microfinance, des plateformes pour
+            le secteur public.
           </p>
           <p>
-            J'interviens sur tout le cycle — analyse des besoins, architecture,
-            modélisation des données, développement, CI/CD et mise en
-            production — et j'ai l'habitude d'encadrer des équipes et de porter
-            les choix techniques. J'intègre aussi l'IA dans les applications
-            que je livre.
+            Je prends les projets de bout en bout : analyse du besoin,
+            architecture, base de données, développement, CI/CD et mise en
+            production. J'ai souvent encadré des équipes et porté les choix
+            techniques, et depuis quelque temps j'intègre de l'IA dans ce que
+            je construis.
           </p>
         </div>
         <div>
