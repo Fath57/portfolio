@@ -12,7 +12,7 @@ export function Projects() {
       <SectionHeading
         num="01"
         title="Projets"
-        intro="Trois projets qui donnent une bonne idée de ce que je fais."
+        intro="Quelques projets qui donnent une bonne idée de ce que je fais."
       />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {featuredProjects.map((project) => (

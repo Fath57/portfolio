@@ -11,18 +11,21 @@ export function ProjectCard({ project }: { project: Project }) {
       className="group block overflow-hidden rounded-lg border border-border bg-surface shadow-card transition-[box-shadow,transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-lift motion-reduce:transition-none motion-reduce:hover:translate-y-0"
     >
       {project.image ? (
-        <div className="relative aspect-[2/1] border-b border-border bg-surface-2">
+        <div className="relative aspect-[2/1] overflow-hidden border-b border-border bg-surface-2">
           <Image
             src={project.image}
             alt={`Capture d'écran de ${project.title}`}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover object-top"
+            className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
         </div>
       ) : (
-        <div className="border-b border-border bg-surface-2 px-5 pt-5">
-          <ProjectArt slug={project.slug} className="block w-full" />
+        <div className="overflow-hidden border-b border-border bg-surface-2 px-5 pt-5">
+          <ProjectArt
+            slug={project.slug}
+            className="block w-full transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+          />
         </div>
       )}
       <div className="p-6">
