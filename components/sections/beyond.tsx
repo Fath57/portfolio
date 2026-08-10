@@ -9,7 +9,7 @@ export function Beyond() {
       id="en-dehors"
       className="mx-auto max-w-5xl scroll-mt-20 border-t border-border px-6 py-16"
     >
-      <SectionHeading num="03" title="En dehors du code" />
+      <SectionHeading num="04" title="En dehors du code" />
       <div className="grid items-start gap-10 md:grid-cols-2">
         <div className="max-w-reading space-y-4 text-ink-muted">
           <p>
