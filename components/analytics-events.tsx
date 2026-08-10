@@ -29,7 +29,11 @@ export function AnalyticsEvents() {
         return;
       }
       if (href.startsWith("mailto:")) {
-        track("contact_email", { emplacement });
+        if (href.includes("Demande%20de%20CV")) {
+          track("cv_demande_mail", { emplacement });
+        } else {
+          track("contact_email", { emplacement });
+        }
         return;
       }
       for (const [domain, site] of Object.entries(demos)) {
