@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { SectionHeading } from "./section-heading";
 
 // Le côté perso : entrepreneuriat, Station F, projets en dehors du travail.
@@ -14,14 +15,20 @@ export function Beyond() {
           <p>
             Le développement n'est pas juste mon métier. Ce qui me plaît,
             c'est de créer des produits de zéro, et l'entrepreneuriat m'attire
-            autant que la technique : je suis passé par Station F, le plus
-            grand campus de startups d'Europe, et je lance des projets en
-            parallèle.
+            autant que la technique : en 2025, j'ai été incubé à Station F, le
+            plus grand campus de startups d'Europe, avec{" "}
+            <Link
+              href="/projets/saas-demenagement"
+              className="text-ink underline decoration-accent-line underline-offset-4 transition-colors hover:text-accent"
+            >
+              DemCRM
+            </Link>
+            .
           </p>
           <p>
-            Le dernier en date : Discover229, une plateforme pour faire
-            découvrir le Bénin, ses destinations et ses agences de voyage.
-            Le 229, c'est l'indicatif du pays.
+            Mon projet perso du moment : Discover229, une plateforme pour
+            faire découvrir le Bénin, ses destinations et ses agences de
+            voyage. Le 229, c'est l'indicatif du pays.
           </p>
           <p className="font-mono text-xs uppercase tracking-wider text-ink-faint">
             Entrepreneuriat · Voyage · Sport · Lecture

@@ -82,7 +82,7 @@ export const projects: Project[] = [
     title: "DemCRM · SaaS pour déménageurs",
     year: "2025",
     summary:
-      "CRM de gestion pour les professionnels du déménagement : devis, plannings, factures et suivi client, développé au sein de L'Agence du Déménagement.",
+      "CRM pour les professionnels du déménagement : devis, plannings, factures et suivi client. Incubé à Station F en 2025.",
     stack: ["Laravel", "Nuxt.js", "PostgreSQL", "Dokku"],
     featured: true,
     image: "/projects/demcrm.png",
@@ -95,7 +95,7 @@ export const projects: Project[] = [
       role:
         "Développement fullstack en Laravel et Nuxt.js : architecture de l'API, modélisation de la base PostgreSQL, pipeline CI/CD, et accompagnement de stagiaires.",
       result:
-        "Le produit est en ligne sur demcrm.com, avec un déploiement automatisé à chaque livraison.",
+        "Le produit est en ligne sur demcrm.com et a été incubé à Station F en 2025.",
     },
   },
   {
