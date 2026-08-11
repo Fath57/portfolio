@@ -28,7 +28,7 @@ export function Beyond() {
           <p>
             Mon projet perso du moment : Discover229, une plateforme pour
             faire découvrir le Bénin, ses destinations et ses agences de
-            voyage. Le 229, c'est l'indicatif du pays.
+            voyage.
           </p>
           <p className="font-mono text-xs uppercase tracking-wider text-ink-faint">
             Entrepreneuriat · Voyage · Sport · Lecture
